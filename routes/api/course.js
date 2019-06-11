@@ -3,6 +3,8 @@ const Course = require('../../db/models/Course');
 
 const app = express.Router();
 
+const _ = require('lodash')
+
 app.post('/add', (req, res) => {
   const body = _.pick(req.body, ['category', 'name']);
   console.log(body);
@@ -15,10 +17,7 @@ app.post('/add', (req, res) => {
   course
     .save()
     .then(data => {
-      res.send({
-        category: data.category,
-        name: data.name
-      });
+      res.send(data);
     })
     .catch(e => {
       console.log(e);

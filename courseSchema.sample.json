@@ -2,11 +2,7 @@
   "category": "UG",
   "name": "Course name",
   "branches": [
-    {
-      "name": "Computer Science"
-    },
-    {
-      "name": "Electronics"
-    }
+    "5cff69c94b1f8e08c8dc6831",
+    "5cff69c94b1f8e08c8dc6831"
   ]
 }
