@@ -12,14 +12,13 @@ const courseSchema = new Schema({
   },
   branches: [
     {
-      name: {
-        type: String
-      }
+      ref: 'Branch',
+      type: Schema.Types.ObjectId
     }
   ]
 });
 
-courseSchema.methods.toJSON = function() {
+courseSchema.methods.toJSON = function () {
   let course = this;
   let courseObject = course.toObject();
   return _.pick(courseObject, ['_id', 'category', 'name']);

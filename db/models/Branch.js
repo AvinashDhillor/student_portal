@@ -6,9 +6,8 @@ const branchSchema = new Schema({
     ref: 'Course',
     type: Schema.Types.ObjectId
   },
-  branch_id: {
-    ref: 'Course',
-    type: Schema.Types.ObjectId
+  name: {
+    type: String
   },
   intake: {
     type: Number
