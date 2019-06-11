@@ -12,7 +12,7 @@
       "subjects": [
         {
           "course_title": "sample data",
-          "course_number": "m301",
+          "course_code": "m301",
           "teaching_schedule": {
             "L": 3,
             "T": 5,
