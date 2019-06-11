@@ -27,8 +27,8 @@ app.post('/add', (req, res) => {
 })
 
 app.get('/show', (req, res) => {
-  let id = req.body.id;
-  Branch.find({ course_id: id })
+  let course_id = req.body.course_id;
+  Branch.find({ course_id: course_id })
     .then(data => {
       res.send(data);
     })
@@ -38,7 +38,7 @@ app.get('/show', (req, res) => {
 });
 
 app.patch('/update', (req, res) => {
-  let branch_id = req.body.id;
+  let branch_id = req.body.branch_id;
   let body = _.pick(req.body, [
     'name',
     'intake',
@@ -56,14 +56,14 @@ app.patch('/update', (req, res) => {
 });
 
 app.delete('/delete', (req, res) => {
-  let id = req.body.id;
+  let branch_id = req.body.branch_id;
   let course_id = req.body.course_id;
-  Branch.findByIdAndDelete(id)
+  Branch.findByIdAndDelete(branch_id)
     .then(data => {
       if (data) {
         Course.findByIdAndUpdate(
           course_id,
-          { $pull: { branches: id } },
+          { $pull: { branches: branch_id } },
           { new: true }
         ).then(d => {
           if (d) {

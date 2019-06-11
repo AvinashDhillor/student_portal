@@ -1,9 +1,10 @@
 const express = require('express');
+const _ = require('lodash')
+
 const Course = require('../../db/models/Course');
 
 const app = express.Router();
 
-const _ = require('lodash')
 
 app.post('/add', (req, res) => {
   const body = _.pick(req.body, ['category', 'name']);
