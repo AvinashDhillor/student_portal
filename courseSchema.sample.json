@@ -1,0 +1,12 @@
+{
+  "category": "UG",
+  "name": "Course name",
+  "branches": [
+    {
+      "name": "Computer Science"
+    },
+    {
+      "name": "Electronics"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "course_id": "5cfe539877f797184ce14f9a",
+  "branch_id": "5cfe539877f797184ce14f9c",
+  "intake": 30,
+  "duration": {
+    "identifier": "year",
+    "period": 3
+  },
+  "semesters": [
+    {
+      "semester_number": "1",
+      "syllabus_link": "thisis.com",
+      "subjects": [
+        {
+          "course_title": "sample data",
+          "course_number": "m301",
+          "teaching_schedule": {
+            "L": 3,
+            "T": 5,
+            "P": 1
+          },
+          "marks_of_classwork": 30,
+          "examination_marks": {
+            "theory": 20,
+            "practical": 20
+          },
+          "total": 100,
+          "credit": 4,
+          "exam_duration": 3
+        },
+        {
+          "course_title": "sample data",
+          "course_number": "m301",
+          "teaching_schedule": {
+            "L": 3,
+            "T": 5,
+            "P": 1
+          },
+          "marks_of_classwork": 30,
+          "examination_marks": {
+            "theory": 20,
+            "practical": 20
+          },
+          "total": 100,
+          "credit": 4,
+          "exam_duration": 3
+        },
+        {
+          "course_title": "sample data",
+          "course_number": "m301",
+          "teaching_schedule": {
+            "L": 3,
+            "T": 5,
+            "P": 1
+          },
+          "marks_of_classwork": 30,
+          "examination_marks": {
+            "theory": 20,
+            "practical": 20
+          },
+          "total": 100,
+          "credit": 4,
+          "exam_duration": 3
+        }
+      ]
+    },
+    {
+      "semester_number": "2",
+      "subjects": [
+        {
+          "course_title": "sample data",
+          "course_number": "m301",
+          "teaching_schedule": {
+            "L": 3,
+            "T": 5,
+            "P": 1
+          },
+          "marks_of_classwork": 30,
+          "examination_marks": {
+            "theory": 20,
+            "practical": 20
+          },
+          "total": 100,
+          "credit": 4,
+          "exam_duration": 3
+        }
+      ]
+    }
+  ],
+  "total_semester": 8,
+  "syllabus_summary": "link will come here"
+}
