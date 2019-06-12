@@ -2,6 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { addCourse, showCourse, editCourse, deleteCourse } from './actions/course'
+const data = {
+  course_id: "5d00e6ece5ab6224303f95a6",
+  category: "lodu",
+  name: "Chutiya"
+}
+
+// deleteCourse(data);
+// addCourse(data);
+// showCourse()
+
+
 function App() {
   return (
     <div className="App">

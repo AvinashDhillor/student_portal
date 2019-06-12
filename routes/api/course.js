@@ -26,10 +26,10 @@ app.post('/add', (req, res) => {
 });
 
 app.patch('/edit', (req, res) => {
-  const body = _.pick(req.body, ['_id', 'category', 'name']);
+  const body = _.pick(req.body, ['course_id', 'category', 'name']);
   console.log(body);
 
-  Course.findByIdAndUpdate({ _id: body._id }, body, { new: true })
+  Course.findByIdAndUpdate({ _id: body.course_id }, body, { new: true })
     .then(data => {
       res.send({
         category: data.category,
@@ -52,10 +52,12 @@ app.get('/show', (req, res) => {
 });
 
 app.delete('/delete', (req, res) => {
-  let _id = req.body.id;
-  Course.findByIdAndDelete(_id).then(data => {
+
+  Course.findByIdAndDelete(req.body.course_id).then(data => {
     return res.send(data);
-  });
+  }).catch(e => {
+    console.log(e);
+  })
 });
 
 module.exports = app;
