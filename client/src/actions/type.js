@@ -6,3 +6,7 @@ export const ADD_BRANCH = 'ADD_BRANCH';
 export const DELETE_BRANCH = 'DELETE_BRANCH';
 export const EDIT_BRANCH = 'EDIT_BRANCH';
 export const SHOW_BRANCH = 'SHOW_BRANCH';
+export const ADD_SEMESTER = 'ADD_SEMESTER';
+export const EDIT_SEMESTER = 'EDIT_SEMESTER';
+export const DELETE_SEMESTER = 'DELETE_SEMESTER';
+export const SHOW_SEMESTER = 'SHOW_SEMESTER';
