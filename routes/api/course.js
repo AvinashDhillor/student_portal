@@ -7,7 +7,6 @@ const app = express.Router();
 
 app.post('/add', (req, res) => {
   const body = _.pick(req.body, ['category', 'name']);
-  console.log(body);
 
   let course = new Course({
     category: body.category,

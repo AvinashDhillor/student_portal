@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 //@ User defined
+const { cloudinaryConfig } = require('./middlewares/cloudinary');
 const mongoose = require('./db/mongoose');
 const course = require('./routes/api/course');
 const branch = require('./routes/api/branch');
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 //@ Middlewares
 app.use(bodyParser.json());
+app.use(cloudinaryConfig)
 
 //@ Routes
 app.use('/api/course', course);
