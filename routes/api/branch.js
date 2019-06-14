@@ -6,27 +6,37 @@ const _ = require('lodash');
 const app = express.Router();
 
 app.post('/add', (req, res) => {
-  const body = _.pick(req.body, ['course_id', 'name', 'intake', 'duration', 'total_semester', 'syllabus_summary']);
+  const body = _.pick(req.body, [
+    'course_id',
+    'name',
+    'intake',
+    'duration',
+    'total_semester',
+    'syllabus_summary'
+  ]);
   let newBranch = new Branch(body);
   let branchData;
   let id;
-  newBranch.save().then(branch => {
-    id = branch._id;
-    branchData = branch;
-    return Course.findById(body.course_id);
-  }).then(course => {
-    course.branches.push(id)
-    return course.save();
-  }).then(result => {
-    return res.send({
-      branchData
+  newBranch
+    .save()
+    .then(branch => {
+      id = branch._id;
+      branchData = branch;
+      return Course.findById(body.course_id);
     })
-  }).catch(e => {
-    console.log(e);
-  })
-})
+    .then(course => {
+      course.branches.push(id);
+      return course.save();
+    })
+    .then(result => {
+      return res.send(branchData);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
 
-app.get('/show', (req, res) => {
+app.post('/show', (req, res) => {
   let course_id = req.body.course_id;
   Branch.find({ course_id: course_id })
     .then(data => {
@@ -37,7 +47,7 @@ app.get('/show', (req, res) => {
     });
 });
 
-app.patch('/update', (req, res) => {
+app.patch('/edit', (req, res) => {
   let branch_id = req.body.branch_id;
   let body = _.pick(req.body, [
     'name',
@@ -75,6 +85,6 @@ app.delete('/delete', (req, res) => {
     .catch(e => {
       console.log(e);
     });
-})
+});
 
 module.exports = app;

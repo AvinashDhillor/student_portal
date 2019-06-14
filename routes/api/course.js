@@ -1,10 +1,9 @@
 const express = require('express');
-const _ = require('lodash')
+const _ = require('lodash');
 
 const Course = require('../../db/models/Course');
 
 const app = express.Router();
-
 
 app.post('/add', (req, res) => {
   const body = _.pick(req.body, ['category', 'name']);
@@ -27,8 +26,6 @@ app.post('/add', (req, res) => {
 
 app.patch('/edit', (req, res) => {
   const body = _.pick(req.body, ['course_id', 'category', 'name']);
-  console.log(body);
-
   Course.findByIdAndUpdate({ _id: body.course_id }, body, { new: true })
     .then(data => {
       res.send({
@@ -52,12 +49,13 @@ app.get('/show', (req, res) => {
 });
 
 app.delete('/delete', (req, res) => {
-
-  Course.findByIdAndDelete(req.body.course_id).then(data => {
-    return res.send(data);
-  }).catch(e => {
-    console.log(e);
-  })
+  Course.findByIdAndDelete(req.body.course_id)
+    .then(data => {
+      return res.send(data);
+    })
+    .catch(e => {
+      console.log(e);
+    });
 });
 
 module.exports = app;
