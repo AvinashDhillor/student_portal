@@ -7,7 +7,9 @@ import {
   deleteBranch,
   editBranch
 } from '../../actions/branch';
+
 import BranchForm from './BranchForm';
+import Semester from '../semester/Semester';
 
 class Branch extends Component {
   constructor(props) {
@@ -86,34 +88,30 @@ class Branch extends Component {
           className="Branch"
           style={{ display: this.state.isVisible ? 'block' : 'none' }}
         >
-          <table>
-            <tbody>
-              {this.state.branch.map((data, i) => {
-                return (
-                  <tr key={i}>
-                    <td>{data.name}</td>
-                    <td>{data.intake}</td>
-                    <td>{data.total_semester}</td>
-                    <td>{data.syllabus_summary}</td>
-                    <td>
-                      {data.duration.period} {data.duration.identifier}
-                    </td>
-                    <td>
-                      <button>Edit</button>
-                    </td>
-                    <td>
-                      <button>Show Semester</button>
-                    </td>
-                    <td>
-                      <button onClick={this.deleteBranch} value={data._id}>
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          {this.state.branch.map((data, i) => {
+            return (
+              <div key={i}>
+                <span>{data.name}</span>
+                <span>{data.intake}</span>
+                <span>{data.total_semester}</span>
+                <span>{data.syllabus_summary}</span>
+                <span>{data.duration.period} </span>
+                <span>{data.duration.identifier}</span>
+                <span>
+                  <button>Edit</button>
+                </span>
+                <span>
+                  <button onClick={this.deleteBranch} value={data._id}>
+                    Delete
+                  </button>
+                </span>
+                <span>
+                  <Semester course_id={data.course_id} branch_id={data._id} />
+                </span>
+              </div>
+            );
+          })}
+
           {this.state.isEditOpen ? (
             <BranchForm
               course_id={this.state.course_id}
